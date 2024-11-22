@@ -1,5 +1,9 @@
 <script lang="ts" setup></script>
 
-<template></template>
+<template>
+	<article>
+		<h2>Age Calculator</h2>
+	</article>
+</template>
 
 <style scoped></style>
