@@ -2,36 +2,36 @@
 
 <template>
 	<article class="age-calculator">
-		<form class="age-calculator__form">
+		<form class="age-calculator__birthdate-form birthdate-form">
 			<h2 class="visually-hidden">Age Calculator</h2>
-			<fieldset class="age-calculator__fieldset">
-				<legend class="age-calculator__legend">Enter your birthdate</legend>
-				<div class="age-calculator__input-group">
-					<div class="age-calculator__input-field">
-						<label class="age-calculator__input-label" for="day">Day</label>
+			<fieldset class="birthdate-form__fieldset">
+				<legend class="birthdate-form__legend">Enter your birthdate</legend>
+				<div class="birthdate-form__input-group">
+					<div class="birthdate-form__input-field">
+						<label class="birthdate-form__input-label" for="day">Day</label>
 						<input
 							id="day"
-							class="age-calculator__input--type--number"
+							class="birthdate-form__input birthdate-form__input--type--number"
 							name="day"
 							placeholder="DD"
 							type="number"
 						/>
 					</div>
-					<div class="age-calculator__input-field">
-						<label class="age-calculator__input-label" for="month">Month</label>
+					<div class="birthdate-form__input-field">
+						<label class="birthdate-form__input-label" for="month">Month</label>
 						<input
 							id="month"
-							class="age-calculator__input--type--number"
+							class="birthdate-form__input birthdate-form__input--type--number"
 							name="month"
 							placeholder="MM"
 							type="number"
 						/>
 					</div>
-					<div class="age-calculator__input-field">
-						<label class="age-calculator__input-label" for="year">Year</label>
+					<div class="birthdate-form__input-field">
+						<label class="birthdate-form__input-label" for="year">Year</label>
 						<input
 							id="year"
-							class="age-calculator__input--type--number"
+							class="birthdate-form__input birthdate-form__input--type--number"
 							name="year"
 							placeholder="YYYY"
 							type="number"
@@ -39,14 +39,14 @@
 					</div>
 				</div>
 			</fieldset>
-			<fieldset class="age-calculator__fieldset">
-				<legend class="age-calculator__legend">Calculate your age</legend>
-				<div class="button__wrapper">
+			<fieldset class="birthdate-form__fieldset">
+				<legend class="birthdate-form__legend">Calculate your age</legend>
+				<div class="birthdate-form__button-wrapper">
 					<button aria-label="Calculate your age" class="button" type="button">
 						<svg
 							fill="none"
 							height="24"
-							shapeRendering="geometricPrecision"
+							shape-rendering="geometricPrecision"
 							viewBox="0 0 25 24"
 							width="25"
 							xmlns="http://www.w3.org/2000/svg"
@@ -65,28 +65,28 @@
 						</svg>
 						<span class="visually-hidden">Calculate age</span>
 					</button>
-					<div class="line"></div>
+					<div class="birthdate-form__decorative-line"></div>
 				</div>
 			</fieldset>
 		</form>
 		<div class="age-calculator__results">
-			<p class="age-calculator__results-text">
+			<p class="age-calculator__result-text">
 				<strong>
 					<output name="years">38</output>
 				</strong>
-				years
+				<span>years</span>
 			</p>
-			<p class="age-calculator__results-text">
+			<p class="age-calculator__result-text">
 				<strong>
 					<output name="months">3</output>
 				</strong>
-				months
+				<span>months</span>
 			</p>
-			<p class="age-calculator__results-text">
+			<p class="age-calculator__result-text">
 				<strong>
 					<output name="days">26</output>
 				</strong>
-				days
+				<span>days</span>
 			</p>
 		</div>
 	</article>
@@ -103,20 +103,23 @@
 		margin: 88rem 16rem 238rem 16rem;
 	}
 
-	.age-calculator__form {
+	.age-calculator__birthdate-form {
 		position: relative;
+	}
+
+	.birthdate-form {
 		display: flex;
 		flex-direction: column;
 		row-gap: 32rem;
 	}
 
-	.age-calculator__fieldset {
+	.birthdate-form__fieldset {
 		border: none;
 		margin: unset;
 		padding: unset;
 	}
 
-	.age-calculator__legend {
+	.birthdate-form__legend {
 		position: absolute;
 		width: 1px;
 		height: 1px;
@@ -129,19 +132,19 @@
 		overflow: hidden;
 	}
 
-	.age-calculator__input-group {
+	.birthdate-form__input-group {
 		display: flex;
 		flex-direction: row;
 		column-gap: 16rem;
 	}
 
-	.age-calculator__input-field {
+	.birthdate-form__input-field {
 		display: flex;
 		flex-direction: column;
 		row-gap: 4rem;
 	}
 
-	.age-calculator__input-label {
+	.birthdate-form__input-label {
 		font-family: var(--font-family), sans-serif;
 		font-weight: 700;
 		font-size: 12rem;
@@ -150,18 +153,15 @@
 		color: var(--grey);
 	}
 
-	.age-calculator__input--type--number {
+	.birthdate-form__input {
 		border: 1rem solid var(--line);
 		border-radius: 8rem;
 		padding: 12rem 16rem;
-		width: 100%;
-		max-width: 87rem;
 		font-family: var(--font-family), sans-serif;
 		font-weight: 700;
 		font-size: 20rem;
 		letter-spacing: 0.01em;
 		color: var(--black);
-		-moz-appearance: textfield;
 
 		&::placeholder {
 			font-family: var(--font-family), sans-serif;
@@ -171,6 +171,12 @@
 			color: var(--black);
 			opacity: 0.5;
 		}
+	}
+
+	.birthdate-form__input--type--number {
+		width: 100%;
+		max-width: 87rem;
+		-moz-appearance: textfield;
 
 		&::-webkit-outer-spin-button,
 		&::-webkit-inner-spin-button {
@@ -179,7 +185,7 @@
 		}
 	}
 
-	.button__wrapper {
+	.birthdate-form__button-wrapper {
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -195,7 +201,7 @@
 		z-index: 2;
 	}
 
-	.line {
+	.birthdate-form__decorative-line {
 		width: 100%;
 		height: 1rem;
 		background: var(--line);
@@ -210,7 +216,7 @@
 		flex-direction: column;
 	}
 
-	.age-calculator__results-text {
+	.age-calculator__result-text {
 		font-family: var(--font-family), sans-serif;
 		font-style: italic;
 		font-weight: 800;
@@ -227,6 +233,10 @@
 			line-height: 110%;
 			letter-spacing: -0.02em;
 			color: var(--purple);
+		}
+
+		> span {
+			margin-left: 8rem;
 		}
 	}
 </style>
