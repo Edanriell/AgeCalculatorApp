@@ -14,7 +14,7 @@
 
 <style scoped>
 	.home-page {
-		@media (width >= 768px) {
+		@media (width >= 1440px) {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
