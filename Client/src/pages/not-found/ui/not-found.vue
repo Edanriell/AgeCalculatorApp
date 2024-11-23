@@ -1,12 +1,10 @@
-<script lang="ts" setup>
-	import { Link } from "@shared/ui/link/";
-</script>
+<script lang="ts" setup></script>
 
 <template>
 	<section class="not-found-section">
 		<h1 class="not-found-section__title">404</h1>
 		<p class="not-found-section__text">Sorry, the page you are looking for does not exist.</p>
-		<Link link-href="/" link-text="Go Back to Home" />
+		<p>Go Back to Home</p>
 	</section>
 </template>
 
@@ -42,7 +40,7 @@
 	}
 
 	.not-found-section__text {
-		font-family: var(--second-family), sans-serif;
+		font-family: var(--font-family), sans-serif;
 		font-weight: 200;
 		font-size: 28rem;
 		line-height: 90%;
