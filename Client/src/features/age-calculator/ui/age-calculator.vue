@@ -101,6 +101,19 @@
 		flex-direction: column;
 		row-gap: 32rem;
 		margin: 88rem 16rem 238rem 16rem;
+
+		@media (width >= 768px) {
+			margin: 88rem 132rem 238rem 132rem;
+		}
+
+		@media (width >= 1440px) {
+			width: 100%;
+			border-radius: 24rem 24rem 200rem 24rem;
+			padding: 56rem;
+			max-width: 840rem;
+			row-gap: unset;
+			margin: unset;
+		}
 	}
 
 	.age-calculator__birthdate-form {
@@ -111,6 +124,10 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 32rem;
+
+		@media (width >= 1440px) {
+			row-gap: unset;
+		}
 	}
 
 	.birthdate-form__fieldset {
@@ -136,12 +153,20 @@
 		display: flex;
 		flex-direction: row;
 		column-gap: 16rem;
+
+		@media (width >= 1440px) {
+			column-gap: 32rem;
+		}
 	}
 
 	.birthdate-form__input-field {
 		display: flex;
 		flex-direction: column;
 		row-gap: 4rem;
+
+		@media (width >= 1440px) {
+			row-gap: 8rem;
+		}
 	}
 
 	.birthdate-form__input-label {
@@ -151,6 +176,10 @@
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
 		color: var(--grey);
+
+		@media (width >= 1440px) {
+			font-size: 14rem;
+		}
 	}
 
 	.birthdate-form__input {
@@ -163,6 +192,11 @@
 		letter-spacing: 0.01em;
 		color: var(--black);
 
+		@media (width >= 1440px) {
+			padding: 12rem 24rem;
+			font-size: 32rem;
+		}
+
 		&::placeholder {
 			font-family: var(--font-family), sans-serif;
 			font-weight: 700;
@@ -170,13 +204,20 @@
 			letter-spacing: 0.01em;
 			color: var(--black);
 			opacity: 0.5;
+
+			@media (width >= 1440px) {
+				font-size: 32rem;
+			}
 		}
 	}
 
 	.birthdate-form__input--type--number {
 		width: 100%;
-		max-width: 87rem;
 		-moz-appearance: textfield;
+
+		@media (width >= 1440px) {
+			max-width: 160rem;
+		}
 
 		&::-webkit-outer-spin-button,
 		&::-webkit-inner-spin-button {
@@ -190,6 +231,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		@media (width >= 1440px) {
+			justify-content: flex-end;
+		}
 	}
 
 	.button {
@@ -199,6 +244,10 @@
 		cursor: pointer;
 		position: relative;
 		z-index: 2;
+
+		@media (width >= 1440px) {
+			padding: 26rem;
+		}
 	}
 
 	.birthdate-form__decorative-line {
@@ -225,6 +274,10 @@
 		letter-spacing: -0.02em;
 		color: var(--black);
 
+		@media (width >= 1440px) {
+			font-size: 104rem;
+		}
+
 		> strong {
 			font-family: var(--font-family), sans-serif;
 			font-style: italic;
@@ -233,6 +286,10 @@
 			line-height: 110%;
 			letter-spacing: -0.02em;
 			color: var(--purple);
+
+			@media (width >= 1440px) {
+				font-size: 104rem;
+			}
 		}
 
 		> span {
