@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+	import { Icon } from "@shared/ui/icon";
+</script>
 
 <template>
 	<article class="age-calculator">
@@ -43,26 +45,7 @@
 				<legend class="birthdate-form__legend">Calculate your age</legend>
 				<div class="birthdate-form__button-wrapper">
 					<button aria-label="Calculate your age" class="button" type="button">
-						<svg
-							fill="none"
-							height="24"
-							shape-rendering="geometricPrecision"
-							viewBox="0 0 25 24"
-							width="25"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M0.5 12.0103C4.5 11.8287 12.5 13.9723 12.5 24"
-								stroke="white"
-								stroke-width="2"
-							/>
-							<path d="M12.5 24V0" stroke="white" stroke-width="2" />
-							<path
-								d="M24.5 12.0103C20.5 11.8287 12.5 13.9723 12.5 24"
-								stroke="white"
-								stroke-width="2"
-							/>
-						</svg>
+						<Icon size="small" type="arrow" />
 						<span class="visually-hidden">Calculate age</span>
 					</button>
 					<div class="birthdate-form__decorative-line"></div>
