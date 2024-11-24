@@ -1,5 +1,22 @@
 <script lang="ts" setup>
+	import { onMounted, onUnmounted, ref } from "vue";
+
 	import { Icon } from "@shared/ui/icon";
+
+	const buttonIconSize = ref<"small" | "large">("small");
+
+	const updateButtonIconSize = () => {
+		buttonIconSize.value = window.matchMedia("(min-width: 1440px)").matches ? "large" : "small";
+	};
+
+	onMounted(() => {
+		window.addEventListener("resize", updateButtonIconSize);
+		updateButtonIconSize();
+	});
+
+	onUnmounted(() => {
+		window.removeEventListener("resize", updateButtonIconSize);
+	});
 </script>
 
 <template>
@@ -44,8 +61,12 @@
 			<fieldset class="birthdate-form__fieldset">
 				<legend class="birthdate-form__legend">Calculate your age</legend>
 				<div class="birthdate-form__button-wrapper">
-					<button aria-label="Calculate your age" class="button" type="button">
-						<Icon size="small" type="arrow" />
+					<button
+						aria-label="Calculate your age"
+						class="button button--shape-type--circle"
+						type="button"
+					>
+						<Icon :size="buttonIconSize" type="arrow" />
 						<span class="visually-hidden">Calculate age</span>
 					</button>
 					<div class="birthdate-form__decorative-line"></div>
@@ -230,6 +251,16 @@
 
 		@media (width >= 1440px) {
 			padding: 26rem;
+		}
+	}
+
+	.button--shape-type--circle {
+		max-width: 64rem;
+		max-height: 64rem;
+
+		@media (width >= 1440px) {
+			max-width: 96rem;
+			max-height: 96rem;
 		}
 	}
 
