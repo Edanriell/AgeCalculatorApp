@@ -1,9 +1,45 @@
 <script lang="ts" setup>
-	import { onMounted, onUnmounted, ref } from "vue";
+	import { onMounted, onUnmounted, reactive, ref } from "vue";
 
 	import { Icon } from "@shared/ui/icon";
 
+	const day = ref<number | null>(null);
+	const month = ref<number | null>(null);
+	const year = ref<number | null>(null);
+
+	const age = reactive({ years: null, months: null, days: null });
+
 	const buttonIconSize = ref<"small" | "large">("small");
+
+	const calculateAge = () => {
+		if (day.value && month.value && year.value) {
+			const today = new Date();
+			// Month is 0-indexed, that's why we subtract 1 from it.
+			const birthDate = new Date(year.value, month.value - 1, day.value);
+
+			let ageYears = today.getFullYear() - birthDate.getFullYear();
+			let ageMonths = today.getMonth() - birthDate.getMonth();
+			let ageDays = today.getDate() - birthDate.getDate();
+
+			// Adjust for negative days
+			if (ageDays < 0) {
+				ageMonths -= 1;
+				// Previous month's last day
+				const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+				ageDays += prevMonth.getDate();
+			}
+
+			// Adjust for negative months
+			if (ageMonths < 0) {
+				ageYears -= 1;
+				ageMonths += 12;
+			}
+
+			age.years = ageYears;
+			age.months = ageMonths;
+			age.days = ageDays;
+		}
+	};
 
 	const updateButtonIconSize = () => {
 		buttonIconSize.value = window.matchMedia("(min-width: 1440px)").matches ? "large" : "small";
@@ -30,6 +66,7 @@
 						<label class="birthdate-form__input-label" for="day">Day</label>
 						<input
 							id="day"
+							v-model="day"
 							class="birthdate-form__input birthdate-form__input--type--number"
 							name="day"
 							placeholder="DD"
@@ -40,6 +77,7 @@
 						<label class="birthdate-form__input-label" for="month">Month</label>
 						<input
 							id="month"
+							v-model="month"
 							class="birthdate-form__input birthdate-form__input--type--number"
 							name="month"
 							placeholder="MM"
@@ -50,6 +88,7 @@
 						<label class="birthdate-form__input-label" for="year">Year</label>
 						<input
 							id="year"
+							v-model="year"
 							class="birthdate-form__input birthdate-form__input--type--number"
 							name="year"
 							placeholder="YYYY"
@@ -65,6 +104,7 @@
 						aria-label="Calculate your age"
 						class="button button--shape-type--circle"
 						type="button"
+						@click="calculateAge"
 					>
 						<Icon :size="buttonIconSize" type="arrow" />
 						<span class="visually-hidden">Calculate age</span>
@@ -76,19 +116,19 @@
 		<div class="age-calculator__results">
 			<p class="age-calculator__result-text">
 				<strong>
-					<output name="years">38</output>
+					<output name="years">{{ age.years ?? "- -" }}</output>
 				</strong>
 				<span>years</span>
 			</p>
 			<p class="age-calculator__result-text">
 				<strong>
-					<output name="months">3</output>
+					<output name="months">{{ age.months ?? "- -" }}</output>
 				</strong>
 				<span>months</span>
 			</p>
 			<p class="age-calculator__result-text">
 				<strong>
-					<output name="days">26</output>
+					<output name="days">{{ age.days ?? "- -" }}</output>
 				</strong>
 				<span>days</span>
 			</p>
