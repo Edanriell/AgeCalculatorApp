@@ -1,15 +1,19 @@
 <script lang="ts" setup>
 	import { onMounted, onUnmounted, reactive, ref } from "vue";
+	import { useField, useForm } from "vee-validate";
+	import { toTypedSchema } from "@vee-validate/zod";
 
 	import { Icon } from "@shared/ui/icon";
 
-	const day = ref<number | null>(null);
-	const month = ref<number | null>(null);
-	const year = ref<number | null>(null);
+	import { birthdateFormValidationSchema } from "../model";
 
 	const age = reactive({ years: null, months: null, days: null });
 
 	const buttonIconSize = ref<"small" | "large">("small");
+
+	const updateButtonIconSize = () => {
+		buttonIconSize.value = window.matchMedia("(min-width: 1440px)").matches ? "large" : "small";
+	};
 
 	const calculateAge = () => {
 		if (day.value && month.value && year.value) {
@@ -41,9 +45,22 @@
 		}
 	};
 
-	const updateButtonIconSize = () => {
-		buttonIconSize.value = window.matchMedia("(min-width: 1440px)").matches ? "large" : "small";
-	};
+	const { handleSubmit } = useForm({
+		validationSchema: toTypedSchema(birthdateFormValidationSchema),
+		initialValues: {
+			day: null,
+			month: null,
+			year: null
+		}
+	});
+
+	const { value: day, errorMessage: dayError } = useField("day");
+	const { value: month, errorMessage: monthError } = useField("month");
+	const { value: year, errorMessage: yearError } = useField("year");
+
+	const onBirthdateFormSubmit = handleSubmit(() => {
+		calculateAge();
+	});
 
 	onMounted(() => {
 		window.addEventListener("resize", updateButtonIconSize);
@@ -57,7 +74,10 @@
 
 <template>
 	<article class="age-calculator">
-		<form class="age-calculator__birthdate-form birthdate-form">
+		<form
+			class="age-calculator__birthdate-form birthdate-form"
+			@submit.prevent="onBirthdateFormSubmit"
+		>
 			<h2 class="visually-hidden">Age Calculator</h2>
 			<fieldset class="birthdate-form__fieldset">
 				<legend class="birthdate-form__legend">Enter your birthdate</legend>
@@ -72,6 +92,7 @@
 							placeholder="DD"
 							type="number"
 						/>
+						<p>{{ dayError }}</p>
 					</div>
 					<div class="birthdate-form__input-field">
 						<label class="birthdate-form__input-label" for="month">Month</label>
@@ -83,6 +104,7 @@
 							placeholder="MM"
 							type="number"
 						/>
+						<p>{{ monthError }}</p>
 					</div>
 					<div class="birthdate-form__input-field">
 						<label class="birthdate-form__input-label" for="year">Year</label>
@@ -94,6 +116,7 @@
 							placeholder="YYYY"
 							type="number"
 						/>
+						<p>{{ yearError }}</p>
 					</div>
 				</div>
 			</fieldset>
@@ -103,8 +126,7 @@
 					<button
 						aria-label="Calculate your age"
 						class="button button--shape-type--circle"
-						type="button"
-						@click="calculateAge"
+						type="submit"
 					>
 						<Icon :size="buttonIconSize" type="arrow" />
 						<span class="visually-hidden">Calculate age</span>
