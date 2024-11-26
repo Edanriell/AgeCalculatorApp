@@ -3,7 +3,8 @@
 	import { useField, useForm } from "vee-validate";
 	import { toTypedSchema } from "@vee-validate/zod";
 
-	import { Icon } from "@shared/ui/icon";
+	import { Input } from "@shared/ui/input/ui";
+	import { Icon } from "@shared/ui/icon/ui";
 
 	import { birthdateFormValidationSchema } from "../model";
 
@@ -85,49 +86,46 @@
 					<div
 						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
 					>
-						<div class="birthdate-form__input-field">
-							<label class="birthdate-form__input-label" for="day">Day</label>
-							<input
-								id="day"
-								v-model="day"
-								class="birthdate-form__input birthdate-form__input--type--number"
-								name="day"
-								placeholder="DD"
-								type="number"
-							/>
-						</div>
+						<Input
+							id="day"
+							:modelValue="day"
+							labelFor="day"
+							labelText="Day"
+							name="day"
+							placeholder="DD"
+							type="number"
+							@update:modelValue="($event) => (day = $event)"
+						/>
 						<p>{{ dayError }}</p>
 					</div>
 					<div
 						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
 					>
-						<div class="birthdate-form__input-field">
-							<label class="birthdate-form__input-label" for="month">Month</label>
-							<input
-								id="month"
-								v-model="month"
-								class="birthdate-form__input birthdate-form__input--type--number"
-								name="month"
-								placeholder="MM"
-								type="number"
-							/>
-						</div>
+						<Input
+							id="month"
+							:modelValue="month"
+							labelFor="month"
+							labelText="Month"
+							name="month"
+							placeholder="MM"
+							type="number"
+							@update:modelValue="($event) => (month = $event)"
+						/>
 						<p>{{ monthError }}</p>
 					</div>
 					<div
 						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
 					>
-						<div class="birthdate-form__input-field">
-							<label class="birthdate-form__input-label" for="year">Year</label>
-							<input
-								id="year"
-								v-model="year"
-								class="birthdate-form__input birthdate-form__input--type--number"
-								name="year"
-								placeholder="YYYY"
-								type="number"
-							/>
-						</div>
+						<Input
+							id="year"
+							:modelValue="year"
+							labelFor="year"
+							labelText="Year"
+							name="year"
+							placeholder="YYYY"
+							type="number"
+							@update:modelValue="($event) => (year = $event)"
+						/>
 						<p>{{ yearError }}</p>
 					</div>
 				</div>
@@ -239,7 +237,6 @@
 
 	.birthdate-form__input-field-wrapper {
 		display: flex;
-		width: 100%;
 	}
 
 	.birthdate-form__input-field-wrapper--type--column {
@@ -248,77 +245,6 @@
 
 		@media (width >= 1440px) {
 			row-gap: 8rem;
-		}
-	}
-
-	.birthdate-form__input-field {
-		display: flex;
-		flex-direction: column;
-		row-gap: 4rem;
-
-		@media (width >= 1440px) {
-			row-gap: 8rem;
-		}
-	}
-
-	.birthdate-form__input-label {
-		font-family: var(--font-family), sans-serif;
-		font-weight: 700;
-		font-size: 12rem;
-		letter-spacing: 0.25em;
-		text-transform: uppercase;
-		color: var(--grey);
-
-		@media (width >= 1440px) {
-			font-size: 14rem;
-		}
-	}
-
-	.birthdate-form__input {
-		border: 1rem solid var(--line);
-		border-radius: 8rem;
-		padding: 12rem 16rem;
-		font-family: var(--font-family), sans-serif;
-		font-weight: 700;
-		font-size: 20rem;
-		letter-spacing: 0.01em;
-		color: var(--black);
-
-		@media (width >= 1440px) {
-			padding: 12rem 24rem;
-			font-size: 32rem;
-		}
-
-		&::placeholder {
-			font-family: var(--font-family), sans-serif;
-			font-weight: 700;
-			font-size: 20rem;
-			letter-spacing: 0.01em;
-			color: var(--black);
-			opacity: 0.5;
-
-			@media (width >= 1440px) {
-				font-size: 32rem;
-			}
-		}
-	}
-
-	birthdate-form__input--state--invalid {
-		border: 1rem solid var(--red);
-	}
-
-	.birthdate-form__input--type--number {
-		width: 100%;
-		-moz-appearance: textfield;
-
-		@media (width >= 1440px) {
-			max-width: 160rem;
-		}
-
-		&::-webkit-outer-spin-button,
-		&::-webkit-inner-spin-button {
-			-webkit-appearance: none;
-			margin: 0;
 		}
 	}
 
