@@ -88,6 +88,7 @@
 					>
 						<Input
 							id="day"
+							:isInputValid="!dayError"
 							:modelValue="day"
 							labelFor="day"
 							labelText="Day"
@@ -103,6 +104,7 @@
 					>
 						<Input
 							id="month"
+							:isInputValid="!monthError"
 							:modelValue="month"
 							labelFor="month"
 							labelText="Month"
@@ -118,6 +120,7 @@
 					>
 						<Input
 							id="year"
+							:isInputValid="!yearError"
 							:modelValue="year"
 							labelFor="year"
 							labelText="Year"
