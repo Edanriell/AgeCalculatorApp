@@ -82,40 +82,52 @@
 			<fieldset class="birthdate-form__fieldset">
 				<legend class="birthdate-form__legend">Enter your birthdate</legend>
 				<div class="birthdate-form__input-group">
-					<div class="birthdate-form__input-field">
-						<label class="birthdate-form__input-label" for="day">Day</label>
-						<input
-							id="day"
-							v-model="day"
-							class="birthdate-form__input birthdate-form__input--type--number"
-							name="day"
-							placeholder="DD"
-							type="number"
-						/>
+					<div
+						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
+					>
+						<div class="birthdate-form__input-field">
+							<label class="birthdate-form__input-label" for="day">Day</label>
+							<input
+								id="day"
+								v-model="day"
+								class="birthdate-form__input birthdate-form__input--type--number"
+								name="day"
+								placeholder="DD"
+								type="number"
+							/>
+						</div>
 						<p>{{ dayError }}</p>
 					</div>
-					<div class="birthdate-form__input-field">
-						<label class="birthdate-form__input-label" for="month">Month</label>
-						<input
-							id="month"
-							v-model="month"
-							class="birthdate-form__input birthdate-form__input--type--number"
-							name="month"
-							placeholder="MM"
-							type="number"
-						/>
+					<div
+						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
+					>
+						<div class="birthdate-form__input-field">
+							<label class="birthdate-form__input-label" for="month">Month</label>
+							<input
+								id="month"
+								v-model="month"
+								class="birthdate-form__input birthdate-form__input--type--number"
+								name="month"
+								placeholder="MM"
+								type="number"
+							/>
+						</div>
 						<p>{{ monthError }}</p>
 					</div>
-					<div class="birthdate-form__input-field">
-						<label class="birthdate-form__input-label" for="year">Year</label>
-						<input
-							id="year"
-							v-model="year"
-							class="birthdate-form__input birthdate-form__input--type--number"
-							name="year"
-							placeholder="YYYY"
-							type="number"
-						/>
+					<div
+						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
+					>
+						<div class="birthdate-form__input-field">
+							<label class="birthdate-form__input-label" for="year">Year</label>
+							<input
+								id="year"
+								v-model="year"
+								class="birthdate-form__input birthdate-form__input--type--number"
+								name="year"
+								placeholder="YYYY"
+								type="number"
+							/>
+						</div>
 						<p>{{ yearError }}</p>
 					</div>
 				</div>
@@ -225,6 +237,20 @@
 		}
 	}
 
+	.birthdate-form__input-field-wrapper {
+		display: flex;
+		width: 100%;
+	}
+
+	.birthdate-form__input-field-wrapper--type--column {
+		flex-direction: column;
+		row-gap: 4rem;
+
+		@media (width >= 1440px) {
+			row-gap: 8rem;
+		}
+	}
+
 	.birthdate-form__input-field {
 		display: flex;
 		flex-direction: column;
@@ -275,6 +301,10 @@
 				font-size: 32rem;
 			}
 		}
+	}
+
+	birthdate-form__input--state--invalid {
+		border: 1rem solid var(--red);
 	}
 
 	.birthdate-form__input--type--number {
