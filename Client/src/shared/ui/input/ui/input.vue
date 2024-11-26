@@ -1,26 +1,53 @@
 <script lang="ts" setup>
-	import { defineProps } from "vue";
+	import { defineProps, ref, watch } from "vue";
+	import { animate } from "motion";
 
-	defineProps<{
-		modelValue: number | string;
+	type InputProps = {
+		modelValue: number | string | null;
 		type: "number";
 		labelFor?: string;
 		labelText?: string;
 		id: string;
 		name: string;
 		placeholder?: string;
-	}>();
+		isInputValid?: boolean;
+	};
+
+	const { modelValue, type, labelFor, labelText, id, name, placeholder, isInputValid } =
+		defineProps<InputProps>();
 
 	const emit = defineEmits(["update:modelValue"]);
+
+	const labelElement = ref<HTMLLabelElement | null>(null);
+	const inputElement = ref<HTMLInputElement | null>(null);
+
+	watch(
+		() => isInputValid,
+		(value) => {
+			if (value) {
+				animate(labelElement.value, { color: "#716f6f" }, { duration: 0.2 });
+				animate(inputElement.value, { borderColor: "#dcdcdc" }, { duration: 0.2 });
+			} else {
+				animate(labelElement.value, { color: "#ff5959" }, { duration: 0.2 });
+				animate(inputElement.value, { borderColor: "#ff5959" }, { duration: 0.2 });
+			}
+		}
+	);
 </script>
 
 <template>
 	<div v-if="type === 'number'" class="input-field">
-		<label v-if="labelFor && labelText" :for="labelFor" class="input-label">{{
-			labelText
-		}}</label>
+		<label
+			v-if="labelFor && labelText"
+			ref="labelElement"
+			:for="labelFor"
+			class="input-label"
+			>{{ labelText }}</label
+		>
 		<input
+			v-if="type === 'number'"
 			:id="id"
+			ref="inputElement"
 			:name="name"
 			:placeholder="placeholder"
 			:value="modelValue"
