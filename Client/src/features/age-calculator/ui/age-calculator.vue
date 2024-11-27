@@ -97,7 +97,11 @@
 							type="number"
 							@update:modelValue="($event) => (day = $event)"
 						/>
-						<p>{{ dayError }}</p>
+						<Transition>
+							<p v-if="dayError" class="birthdate-form__input-error-message">
+								{{ dayError }}
+							</p>
+						</Transition>
 					</div>
 					<div
 						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
@@ -113,7 +117,11 @@
 							type="number"
 							@update:modelValue="($event) => (month = $event)"
 						/>
-						<p>{{ monthError }}</p>
+						<Transition>
+							<p v-if="monthError" class="birthdate-form__input-error-message">
+								{{ monthError }}
+							</p>
+						</Transition>
 					</div>
 					<div
 						class="birthdate-form__input-field-wrapper birthdate-form__input-field-wrapper--type--column"
@@ -129,7 +137,11 @@
 							type="number"
 							@update:modelValue="($event) => (year = $event)"
 						/>
-						<p>{{ yearError }}</p>
+						<Transition>
+							<p v-if="yearError" class="birthdate-form__input-error-message">
+								{{ yearError }}
+							</p>
+						</Transition>
 					</div>
 				</div>
 			</fieldset>
@@ -293,6 +305,18 @@
 		top: 50%;
 		left: 0;
 		transform: translateY(50%);
+	}
+
+	.birthdate-form__input-error-message {
+		font-family: var(--font-family), sans-serif;
+		font-style: italic;
+		font-weight: 400;
+		font-size: 12rem;
+		color: var(--red);
+
+		@media (width >= 1440px) {
+			font-size: 14rem;
+		}
 	}
 
 	.age-calculator__results {
