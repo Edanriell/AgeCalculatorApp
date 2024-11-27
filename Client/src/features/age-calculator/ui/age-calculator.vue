@@ -8,6 +8,7 @@
 	import { Input } from "@shared/ui/input/ui";
 
 	import { birthdateFormValidationSchema } from "../model";
+	import { Icon } from "@shared/ui/icon/ui";
 
 	const age = reactive({ years: null, months: null, days: null });
 
@@ -197,7 +198,10 @@
 			<fieldset class="birthdate-form__fieldset">
 				<legend class="birthdate-form__legend">Calculate your age</legend>
 				<div class="birthdate-form__button-wrapper">
-					<Button buttonType="submit" />
+					<Button buttonType="submit">
+						<Icon :size="buttonIconSize" type="arrow" />
+						<span class="visually-hidden">Calculate age</span>
+					</Button>
 					<div class="birthdate-form__decorative-line"></div>
 				</div>
 			</fieldset>

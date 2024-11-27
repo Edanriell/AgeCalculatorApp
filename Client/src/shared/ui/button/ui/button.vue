@@ -1,35 +1,70 @@
 <script lang="ts" setup>
-	import { Icon } from "@shared/ui/icon/ui";
+	import { ref } from "vue";
+	import { animate } from "motion";
 
 	type ButtonProps = {
 		buttonType: "button" | "submit" | "reset";
 	};
 
 	const { buttonType } = defineProps<ButtonProps>();
+
+	const buttonElement = ref<HTMLButtonElement>();
+
+	const handleMouseEnter = () => {
+		animate(
+			buttonElement.value,
+			{ backgroundColor: "#151515", scale: 1.2 },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
+	const handleMouseLeave = () => {
+		animate(
+			buttonElement.value,
+			{ backgroundColor: "#854dff", scale: 1 },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
+	const handleMouseDown = () => {
+		animate(buttonElement.value, { scale: 0.9 }, { type: "spring", duration: 0.25, bounce: 0 });
+	};
+
+	const handleMouseUp = () => {
+		animate(buttonElement.value, { scale: 1.2 }, { type: "spring", duration: 0.25, bounce: 0 });
+	};
 </script>
 
 <template>
 	<button
+		ref="buttonElement"
 		:type="buttonType"
 		aria-label="Calculate your age"
 		class="button button--shape-type--circle"
+		@mousedown="handleMouseDown"
+		@mouseenter="handleMouseEnter"
+		@mouseleave="handleMouseLeave"
+		@mouseup="handleMouseUp"
 	>
-		<Icon size="large" type="arrow" />
-		<span class="visually-hidden">Calculate age</span>
+		<slot></slot>
 	</button>
 </template>
 
 <style scoped>
 	.button {
-		padding: 20rem;
+		//padding: 20rem;
 		background: var(--purple);
 		border-radius: 216rem;
 		cursor: pointer;
 		position: relative;
 		z-index: 2;
+		overflow: hidden;
+		width: 100%;
+		height: 64rem;
 
 		@media (width >= 1440px) {
-			padding: 26rem;
+			//padding: 26rem;
+			height: 96rem;
 		}
 	}
 
