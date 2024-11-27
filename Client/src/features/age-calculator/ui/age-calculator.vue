@@ -4,8 +4,8 @@
 	import { toTypedSchema } from "@vee-validate/zod";
 	import { animate } from "motion";
 
+	import { Button } from "@shared/ui/button/ui";
 	import { Input } from "@shared/ui/input/ui";
-	import { Icon } from "@shared/ui/icon/ui";
 
 	import { birthdateFormValidationSchema } from "../model";
 
@@ -197,14 +197,7 @@
 			<fieldset class="birthdate-form__fieldset">
 				<legend class="birthdate-form__legend">Calculate your age</legend>
 				<div class="birthdate-form__button-wrapper">
-					<button
-						aria-label="Calculate your age"
-						class="button button--shape-type--circle"
-						type="submit"
-					>
-						<Icon :size="buttonIconSize" type="arrow" />
-						<span class="visually-hidden">Calculate age</span>
-					</button>
+					<Button buttonType="submit" />
 					<div class="birthdate-form__decorative-line"></div>
 				</div>
 			</fieldset>
@@ -320,29 +313,6 @@
 
 		@media (width >= 1440px) {
 			justify-content: flex-end;
-		}
-	}
-
-	.button {
-		padding: 20rem;
-		background: var(--purple);
-		border-radius: 216rem;
-		cursor: pointer;
-		position: relative;
-		z-index: 2;
-
-		@media (width >= 1440px) {
-			padding: 26rem;
-		}
-	}
-
-	.button--shape-type--circle {
-		max-width: 64rem;
-		max-height: 64rem;
-
-		@media (width >= 1440px) {
-			max-width: 96rem;
-			max-height: 96rem;
 		}
 	}
 
