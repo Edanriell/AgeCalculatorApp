@@ -2,6 +2,7 @@
 	import { onMounted, onUnmounted, reactive, ref } from "vue";
 	import { useField, useForm } from "vee-validate";
 	import { toTypedSchema } from "@vee-validate/zod";
+	import { animate } from "motion";
 
 	import { Input } from "@shared/ui/input/ui";
 	import { Icon } from "@shared/ui/icon/ui";
@@ -97,7 +98,23 @@
 							type="number"
 							@update:modelValue="($event) => (day = $event)"
 						/>
-						<Transition>
+						<Transition
+							:css="false"
+							@enter="
+								(element, done) =>
+									animate(
+										element,
+										{ opacity: [0, 1], y: [-5, 0] },
+										{ duration: 0.2 }
+									).then(() => done())
+							"
+							@leave="
+								(element, done) =>
+									animate(element, { opacity: 0, y: -5 }, { duration: 0.2 }).then(
+										() => done()
+									)
+							"
+						>
 							<p v-if="dayError" class="birthdate-form__input-error-message">
 								{{ dayError }}
 							</p>
@@ -117,7 +134,23 @@
 							type="number"
 							@update:modelValue="($event) => (month = $event)"
 						/>
-						<Transition>
+						<Transition
+							:css="false"
+							@enter="
+								(element, done) =>
+									animate(
+										element,
+										{ opacity: [0, 1], y: [-5, 0] },
+										{ duration: 0.2 }
+									).then(() => done())
+							"
+							@leave="
+								(element, done) =>
+									animate(element, { opacity: 0, y: -5 }, { duration: 0.2 }).then(
+										() => done()
+									)
+							"
+						>
 							<p v-if="monthError" class="birthdate-form__input-error-message">
 								{{ monthError }}
 							</p>
@@ -137,7 +170,23 @@
 							type="number"
 							@update:modelValue="($event) => (year = $event)"
 						/>
-						<Transition>
+						<Transition
+							:css="false"
+							@enter="
+								(element, done) =>
+									animate(
+										element,
+										{ opacity: [0, 1], y: [-5, 0] },
+										{ duration: 0.2 }
+									).then(() => done())
+							"
+							@leave="
+								(element, done) =>
+									animate(element, { opacity: 0, y: -5 }, { duration: 0.2 }).then(
+										() => done()
+									)
+							"
+						>
 							<p v-if="yearError" class="birthdate-form__input-error-message">
 								{{ yearError }}
 							</p>
