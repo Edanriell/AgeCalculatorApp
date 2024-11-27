@@ -25,11 +25,27 @@
 		() => isInputValid,
 		(value) => {
 			if (value) {
-				animate(labelElement.value, { color: "#716f6f" }, { duration: 0.2 });
-				animate(inputElement.value, { borderColor: "#dcdcdc" }, { duration: 0.2 });
+				animate(
+					labelElement.value,
+					{ color: "#716f6f" },
+					{ type: "spring", duration: 0.25, bounce: 0 }
+				);
+				animate(
+					inputElement.value,
+					{ borderColor: "#dcdcdc" },
+					{ type: "spring", duration: 0.25, bounce: 0 }
+				);
 			} else {
-				animate(labelElement.value, { color: "#ff5959" }, { duration: 0.2 });
-				animate(inputElement.value, { borderColor: "#ff5959" }, { duration: 0.2 });
+				animate(
+					labelElement.value,
+					{ color: "#ff5959" },
+					{ type: "spring", duration: 0.25, bounce: 0 }
+				);
+				animate(
+					inputElement.value,
+					{ borderColor: "#ff5959" },
+					{ type: "spring", duration: 0.25, bounce: 0 }
+				);
 			}
 		}
 	);
