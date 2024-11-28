@@ -106,14 +106,16 @@
 									animate(
 										element,
 										{ opacity: [0, 1], y: [-5, 0] },
-										{ duration: 0.2 }
+										{ type: 'spring', duration: 0.25, bounce: 0 }
 									).then(() => done())
 							"
 							@leave="
 								(element, done) =>
-									animate(element, { opacity: 0, y: -5 }, { duration: 0.2 }).then(
-										() => done()
-									)
+									animate(
+										element,
+										{ opacity: 0, y: -5 },
+										{ type: 'spring', duration: 0.25, bounce: 0 }
+									).then(() => done())
 							"
 						>
 							<p v-if="dayError" class="birthdate-form__input-error-message">
@@ -142,14 +144,16 @@
 									animate(
 										element,
 										{ opacity: [0, 1], y: [-5, 0] },
-										{ duration: 0.2 }
+										{ type: 'spring', duration: 0.25, bounce: 0 }
 									).then(() => done())
 							"
 							@leave="
 								(element, done) =>
-									animate(element, { opacity: 0, y: -5 }, { duration: 0.2 }).then(
-										() => done()
-									)
+									animate(
+										element,
+										{ opacity: 0, y: -5 },
+										{ type: 'spring', duration: 0.25, bounce: 0 }
+									).then(() => done())
 							"
 						>
 							<p v-if="monthError" class="birthdate-form__input-error-message">
@@ -178,14 +182,16 @@
 									animate(
 										element,
 										{ opacity: [0, 1], y: [-5, 0] },
-										{ duration: 0.2 }
+										{ type: 'spring', duration: 0.25, bounce: 0 }
 									).then(() => done())
 							"
 							@leave="
 								(element, done) =>
-									animate(element, { opacity: 0, y: -5 }, { duration: 0.2 }).then(
-										() => done()
-									)
+									animate(
+										element,
+										{ opacity: 0, y: -5 },
+										{ type: 'spring', duration: 0.25, bounce: 0 }
+									).then(() => done())
 							"
 						>
 							<p v-if="yearError" class="birthdate-form__input-error-message">
@@ -221,7 +227,9 @@
 			</p>
 			<p class="age-calculator__result-text">
 				<strong>
-					<output name="days">{{ age.days ?? "- -" }}</output>
+					<output name="days">
+						{{ age.days ?? "- -" }}
+					</output>
 				</strong>
 				<span>days</span>
 			</p>

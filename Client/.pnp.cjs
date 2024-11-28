@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@number-flow/vue", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.3.1"],\
           ["@tsconfig/node22", "npm:22.0.0"],\
           ["@types/jsdom", "npm:21.1.7"],\
           ["@types/node", "npm:22.9.3"],\
@@ -1264,6 +1265,30 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@npmcli/fs", "npm:3.1.1"],\
           ["semver", "npm:7.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@number-flow/vue", [\
+      ["npm:0.3.1", {\
+        "packageLocation": "./.yarn/cache/@number-flow-vue-npm-0.3.1-fb4bd75ef0-d5bf5c1eb9.zip/node_modules/@number-flow/vue/",\
+        "packageDependencies": [\
+          ["@number-flow/vue", "npm:0.3.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.3.1", {\
+        "packageLocation": "./.yarn/__virtual__/@number-flow-vue-virtual-10c1b7775a/0/cache/@number-flow-vue-npm-0.3.1-fb4bd75ef0-d5bf5c1eb9.zip/node_modules/@number-flow/vue/",\
+        "packageDependencies": [\
+          ["@number-flow/vue", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.3.1"],\
+          ["@types/vue", null],\
+          ["esm-env", "npm:1.2.0"],\
+          ["number-flow", "npm:0.4.0"],\
+          ["vue", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.5.13"]\
+        ],\
+        "packagePeers": [\
+          "@types/vue",\
+          "vue"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2997,6 +3022,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["client", "workspace:."],\
+          ["@number-flow/vue", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.3.1"],\
           ["@tsconfig/node22", "npm:22.0.0"],\
           ["@types/jsdom", "npm:21.1.7"],\
           ["@types/node", "npm:22.9.3"],\
@@ -3874,6 +3900,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/eslint-visitor-keys-npm-4.2.0-a591434af3-2ed81c663b.zip/node_modules/eslint-visitor-keys/",\
         "packageDependencies": [\
           ["eslint-visitor-keys", "npm:4.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["esm-env", [\
+      ["npm:1.2.0", {\
+        "packageLocation": "./.yarn/cache/esm-env-npm-1.2.0-ee16115239-3b9fe9f445.zip/node_modules/esm-env/",\
+        "packageDependencies": [\
+          ["esm-env", "npm:1.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5828,6 +5863,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["nth-check", "npm:2.1.1"],\
           ["boolbase", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["number-flow", [\
+      ["npm:0.4.0", {\
+        "packageLocation": "./.yarn/cache/number-flow-npm-0.4.0-07a3f65280-6d59b99ea8.zip/node_modules/number-flow/",\
+        "packageDependencies": [\
+          ["number-flow", "npm:0.4.0"],\
+          ["esm-env", "npm:1.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
