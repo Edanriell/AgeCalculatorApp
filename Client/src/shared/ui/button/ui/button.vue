@@ -33,6 +33,22 @@
 	const handleMouseUp = () => {
 		animate(buttonElement.value, { scale: 1.2 }, { type: "spring", duration: 0.25, bounce: 0 });
 	};
+
+	const handleTouchStart = () => {
+		animate(
+			buttonElement.value,
+			{ backgroundColor: "#151515", scale: 0.9 },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
+	const handleTouchEnd = () => {
+		animate(
+			buttonElement.value,
+			{ backgroundColor: "#854dff", scale: 1 },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
 </script>
 
 <template>
@@ -45,6 +61,8 @@
 		@mouseenter="handleMouseEnter"
 		@mouseleave="handleMouseLeave"
 		@mouseup="handleMouseUp"
+		@touchend="handleTouchStart"
+		@touchstart="handleTouchEnd"
 	>
 		<slot></slot>
 	</button>
