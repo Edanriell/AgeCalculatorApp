@@ -21,6 +21,38 @@
 	const labelElement = ref<HTMLLabelElement | null>(null);
 	const inputElement = ref<HTMLInputElement | null>(null);
 
+	const handleMouseEnter = () => {
+		animate(
+			inputElement.value,
+			{ borderColor: "#854dff" },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
+	const handleMouseLeave = () => {
+		animate(
+			inputElement.value,
+			{ borderColor: "#dcdcdc" },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
+	const handleTouchStart = () => {
+		animate(
+			inputElement.value,
+			{ borderColor: "#854dff" },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
+	const handleTouchEnd = () => {
+		animate(
+			inputElement.value,
+			{ borderColor: "#dcdcdc" },
+			{ type: "spring", duration: 0.25, bounce: 0 }
+		);
+	};
+
 	watch(
 		() => isInputValid,
 		(value) => {
@@ -70,6 +102,10 @@
 			class="input input--type--number"
 			type="number"
 			@input="emit('update:modelValue', +$event.target.value)"
+			@mouseenter="handleMouseEnter"
+			@mouseleave="handleMouseLeave"
+			@touchend="handleTouchEnd"
+			@touchstart="handleTouchStart"
 		/>
 	</div>
 </template>
