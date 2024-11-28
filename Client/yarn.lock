@@ -955,18 +955,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@number-flow/vue@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@number-flow/vue@npm:0.3.1"
-  dependencies:
-    esm-env: "npm:^1.1.4"
-    number-flow: "npm:0.4.0"
-  peerDependencies:
-    vue: ^3
-  checksum: 10c0/d5bf5c1eb97b521f69bbd7bd2157c7aa26ef06b479799dc8fa26e5802109f7e1c445790cba79f8495b546ed20f5718913eca6124ee8e2c952b06c51ed882a297
-  languageName: node
-  linkType: hard
-
 "@one-ini/wasm@npm:0.1.1":
   version: 0.1.1
   resolution: "@one-ini/wasm@npm:0.1.1"
@@ -2273,7 +2261,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client@workspace:."
   dependencies:
-    "@number-flow/vue": "npm:^0.3.1"
     "@tsconfig/node22": "npm:^22.0.0"
     "@types/jsdom": "npm:^21.1.7"
     "@types/node": "npm:^22.9.0"
@@ -3091,13 +3078,6 @@ __metadata:
   bin:
     eslint: bin/eslint.js
   checksum: 10c0/d0d7606f36bfcccb1c3703d0a24df32067b207a616f17efe5fb1765a91d13f085afffc4fc97ecde4ab9c9f4edd64d9b4ce750e13ff7937a25074b24bee15b20f
-  languageName: node
-  linkType: hard
-
-"esm-env@npm:^1.1.4":
-  version: 1.2.0
-  resolution: "esm-env@npm:1.2.0"
-  checksum: 10c0/3b9fe9f445e02716ab9904fb30689b7cb1199c9fb75a38ece2e3a71fa05470c6687777123bca0c7843a95250de0e83e45529b8d28ce6e656d5bd4f5f448f9353
   languageName: node
   linkType: hard
 
@@ -4852,15 +4832,6 @@ __metadata:
   dependencies:
     boolbase: "npm:^1.0.0"
   checksum: 10c0/5fee7ff309727763689cfad844d979aedd2204a817fbaaf0e1603794a7c20db28548d7b024692f953557df6ce4a0ee4ae46cd8ebd9b36cfb300b9226b567c479
-  languageName: node
-  linkType: hard
-
-"number-flow@npm:0.4.0":
-  version: 0.4.0
-  resolution: "number-flow@npm:0.4.0"
-  dependencies:
-    esm-env: "npm:^1.1.4"
-  checksum: 10c0/6d59b99ea8afb675a557489311ed1e944aa91343c417f552c3e0cafc5f762c616397490ec2a508672ff8a3acfcc68359b56add1e6df9d8f9ca933baa3cf7ea85
   languageName: node
   linkType: hard
 
