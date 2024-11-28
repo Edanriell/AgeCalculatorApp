@@ -1,0 +1,23 @@
+// vite.config.ts
+import { fileURLToPath, URL } from "node:url";
+import { defineConfig } from "file:///D:/Projects/AgeCalculatorApp/Client/.yarn/__virtual__/vite-virtual-5da9fe15d5/0/cache/vite-npm-5.4.11-9da365ef2b-d536bb7af5.zip/node_modules/vite/dist/node/index.js";
+import vue from "file:///D:/Projects/AgeCalculatorApp/Client/.yarn/__virtual__/@vitejs-plugin-vue-virtual-bcdfd32336/0/cache/@vitejs-plugin-vue-npm-5.2.0-27e23c9bb8-cdd1850b9d.zip/node_modules/@vitejs/plugin-vue/dist/index.mjs";
+import vueDevTools from "file:///D:/Projects/AgeCalculatorApp/Client/.yarn/__virtual__/vite-plugin-vue-devtools-virtual-dfaea59436/0/cache/vite-plugin-vue-devtools-npm-7.6.4-66a947f26c-913cd5d755.zip/node_modules/vite-plugin-vue-devtools/dist/vite.mjs";
+var __vite_injected_original_import_meta_url = "file:///D:/Projects/AgeCalculatorApp/Client/vite.config.ts";
+var vite_config_default = defineConfig({
+  plugins: [vue(), vueDevTools()],
+  resolve: {
+    alias: {
+      "@app": fileURLToPath(new URL("./src/app", __vite_injected_original_import_meta_url)),
+      "@entities": fileURLToPath(new URL("./src/entities", __vite_injected_original_import_meta_url)),
+      "@features": fileURLToPath(new URL("./src/features", __vite_injected_original_import_meta_url)),
+      "@pages": fileURLToPath(new URL("./src/pages", __vite_injected_original_import_meta_url)),
+      "@shared": fileURLToPath(new URL("./src/shared", __vite_injected_original_import_meta_url)),
+      "@widgets": fileURLToPath(new URL("./src/widgets", __vite_injected_original_import_meta_url))
+    }
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJEOlxcXFxQcm9qZWN0c1xcXFxBZ2VDYWxjdWxhdG9yQXBwXFxcXENsaWVudFwiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9maWxlbmFtZSA9IFwiRDpcXFxcUHJvamVjdHNcXFxcQWdlQ2FsY3VsYXRvckFwcFxcXFxDbGllbnRcXFxcdml0ZS5jb25maWcudHNcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfaW1wb3J0X21ldGFfdXJsID0gXCJmaWxlOi8vL0Q6L1Byb2plY3RzL0FnZUNhbGN1bGF0b3JBcHAvQ2xpZW50L3ZpdGUuY29uZmlnLnRzXCI7aW1wb3J0IHsgZmlsZVVSTFRvUGF0aCwgVVJMIH0gZnJvbSBcIm5vZGU6dXJsXCI7XHJcblxyXG5pbXBvcnQgeyBkZWZpbmVDb25maWcgfSBmcm9tIFwidml0ZVwiO1xyXG5pbXBvcnQgdnVlIGZyb20gXCJAdml0ZWpzL3BsdWdpbi12dWVcIjtcclxuaW1wb3J0IHZ1ZURldlRvb2xzIGZyb20gXCJ2aXRlLXBsdWdpbi12dWUtZGV2dG9vbHNcIjtcclxuXHJcbi8vIGh0dHBzOi8vdml0ZS5kZXYvY29uZmlnL1xyXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xyXG5cdHBsdWdpbnM6IFt2dWUoKSwgdnVlRGV2VG9vbHMoKV0sXHJcblx0cmVzb2x2ZToge1xyXG5cdFx0YWxpYXM6IHtcclxuXHRcdFx0XCJAYXBwXCI6IGZpbGVVUkxUb1BhdGgobmV3IFVSTChcIi4vc3JjL2FwcFwiLCBpbXBvcnQubWV0YS51cmwpKSxcclxuXHRcdFx0XCJAZW50aXRpZXNcIjogZmlsZVVSTFRvUGF0aChuZXcgVVJMKFwiLi9zcmMvZW50aXRpZXNcIiwgaW1wb3J0Lm1ldGEudXJsKSksXHJcblx0XHRcdFwiQGZlYXR1cmVzXCI6IGZpbGVVUkxUb1BhdGgobmV3IFVSTChcIi4vc3JjL2ZlYXR1cmVzXCIsIGltcG9ydC5tZXRhLnVybCkpLFxyXG5cdFx0XHRcIkBwYWdlc1wiOiBmaWxlVVJMVG9QYXRoKG5ldyBVUkwoXCIuL3NyYy9wYWdlc1wiLCBpbXBvcnQubWV0YS51cmwpKSxcclxuXHRcdFx0XCJAc2hhcmVkXCI6IGZpbGVVUkxUb1BhdGgobmV3IFVSTChcIi4vc3JjL3NoYXJlZFwiLCBpbXBvcnQubWV0YS51cmwpKSxcclxuXHRcdFx0XCJAd2lkZ2V0c1wiOiBmaWxlVVJMVG9QYXRoKG5ldyBVUkwoXCIuL3NyYy93aWRnZXRzXCIsIGltcG9ydC5tZXRhLnVybCkpXHJcblx0XHR9XHJcblx0fVxyXG59KTtcclxuIl0sCiAgIm1hcHBpbmdzIjogIjtBQUFtUyxTQUFTLGVBQWUsV0FBVztBQUV0VSxTQUFTLG9CQUFvQjtBQUM3QixPQUFPLFNBQVM7QUFDaEIsT0FBTyxpQkFBaUI7QUFKNkosSUFBTSwyQ0FBMkM7QUFPdE8sSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFDM0IsU0FBUyxDQUFDLElBQUksR0FBRyxZQUFZLENBQUM7QUFBQSxFQUM5QixTQUFTO0FBQUEsSUFDUixPQUFPO0FBQUEsTUFDTixRQUFRLGNBQWMsSUFBSSxJQUFJLGFBQWEsd0NBQWUsQ0FBQztBQUFBLE1BQzNELGFBQWEsY0FBYyxJQUFJLElBQUksa0JBQWtCLHdDQUFlLENBQUM7QUFBQSxNQUNyRSxhQUFhLGNBQWMsSUFBSSxJQUFJLGtCQUFrQix3Q0FBZSxDQUFDO0FBQUEsTUFDckUsVUFBVSxjQUFjLElBQUksSUFBSSxlQUFlLHdDQUFlLENBQUM7QUFBQSxNQUMvRCxXQUFXLGNBQWMsSUFBSSxJQUFJLGdCQUFnQix3Q0FBZSxDQUFDO0FBQUEsTUFDakUsWUFBWSxjQUFjLElBQUksSUFBSSxpQkFBaUIsd0NBQWUsQ0FBQztBQUFBLElBQ3BFO0FBQUEsRUFDRDtBQUNELENBQUM7IiwKICAibmFtZXMiOiBbXQp9Cg==
