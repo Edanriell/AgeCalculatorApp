@@ -4,6 +4,7 @@
 
 	type ButtonProps = {
 		buttonType: "button" | "submit" | "reset";
+		shape: "circle" | "pill";
 	};
 
 	const { buttonType } = defineProps<ButtonProps>();
@@ -54,9 +55,13 @@
 <template>
 	<button
 		ref="buttonElement"
+		:class="{
+			button: true,
+			'button--shape-type--circle': shape === 'circle',
+			'button--shape-type--pill': shape === 'pill'
+		}"
 		:type="buttonType"
 		aria-label="Calculate your age"
-		class="button button--shape-type--circle"
 		@mousedown="handleMouseDown"
 		@mouseenter="handleMouseEnter"
 		@mouseleave="handleMouseLeave"
@@ -93,6 +98,16 @@
 		@media (width >= 1440px) {
 			max-width: 96rem;
 			max-height: 96rem;
+		}
+	}
+
+	.button--shape-type--pill {
+		width: unset;
+		height: unset;
+		padding: 12rem 32rem;
+
+		@media (width >= 1440px) {
+			padding: 18rem 48rem;
 		}
 	}
 </style>
