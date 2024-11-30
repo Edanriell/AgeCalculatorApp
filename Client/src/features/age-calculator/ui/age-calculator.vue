@@ -204,7 +204,7 @@
 			<fieldset class="birthdate-form__fieldset">
 				<legend class="birthdate-form__legend">Calculate your age</legend>
 				<div class="birthdate-form__button-wrapper">
-					<Button buttonType="submit">
+					<Button buttonType="submit" shape="circle">
 						<Icon :size="buttonIconSize" type="arrow" />
 						<span class="visually-hidden">Calculate age</span>
 					</Button>
