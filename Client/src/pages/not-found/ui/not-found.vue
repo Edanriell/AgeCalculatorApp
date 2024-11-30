@@ -7,7 +7,7 @@
 		<h1 class="not-found-section__title">404</h1>
 		<p class="not-found-section__text">Sorry, the page you are looking for does not exist.</p>
 		<Button buttonType="button" shape="pill">
-			<span>Go Back to Home</span>
+			<span class="button__text">Go Back to Home</span>
 		</Button>
 	</section>
 </template>
@@ -52,5 +52,14 @@
 		color: #000;
 		text-align: center;
 		margin-bottom: 20rem;
+	}
+
+	.button__text {
+		font-family: var(--font-family), sans-serif;
+		font-weight: 400;
+		font-size: 16rem;
+		line-height: 90%;
+		letter-spacing: -0.04em;
+		color: #fff;
 	}
 </style>
